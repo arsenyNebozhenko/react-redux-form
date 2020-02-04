@@ -11,6 +11,10 @@ const Container = styled.form`
   justify-content: center;
 `
 
+const Title = styled.h1`
+  
+`
+
 const Input = styled.input`
   text-align: center;
   display: block;
@@ -33,6 +37,7 @@ const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
 
   return (
     <Container onSubmit={handleSubmit}>
+      <Title>Register</Title>
       <Input
         type="text"
         placeholder="First name" 
