@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { SUBMIT_FORM, SET_FORM_PROP } from '../actions/types'
+import { submitForm, setFormProp } from '../actions'
 
 const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
   const handleSubmit = (e) => {
@@ -40,20 +40,8 @@ const mapStateToProps = ({ form: { firstName, secondName } }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  submitForm: (firstName, secondName) => dispatch({ 
-    type: SUBMIT_FORM, 
-    payload: { 
-      firstName, 
-      secondName 
-    } 
-  }),
-  setFormProp: (name, value) => dispatch({ 
-    type: SET_FORM_PROP, 
-    payload: { 
-      name, 
-      value 
-    } 
-  })
+  submitForm: (firstName, secondName) => dispatch(submitForm(firstName, secondName)),
+  setFormProp: (name, value) => dispatch(setFormProp(name, value))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form)
