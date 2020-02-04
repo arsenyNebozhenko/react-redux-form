@@ -12,7 +12,7 @@ const Container = styled.form`
 `
 
 const Title = styled.h1`
-  
+
 `
 
 const Input = styled.input`
@@ -24,7 +24,7 @@ const Button = styled.button`
   display: block;
 `
 
-const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
+const Form = ({ firstName, secondName, email, submitForm, setFormProp }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -51,15 +51,23 @@ const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
         name="secondName" 
         value={secondName}
         onChange={handleChange} 
+        />
+      <Input 
+        type="email" 
+        placeholder="email"
+        name="email" 
+        value={email}
+        onChange={handleChange} 
       />
       <Button>Submit</Button>
     </Container>
   )
 }
 
-const mapStateToProps = ({ form: { firstName, secondName } }) => ({
+const mapStateToProps = ({ form: { firstName, secondName, email } }) => ({
   firstName,
-  secondName
+  secondName,
+  email
 })
 
 const mapDispatchToProps = (dispatch) => ({

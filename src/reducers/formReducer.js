@@ -2,7 +2,8 @@ import { SUBMIT_FORM, SET_FORM_PROP } from "../actions/types"
 
 const initialState = {
   firstName: '',
-  secondName: ''
+  secondName: '',
+  email: ''
 }
 
 const formReducer = (state = initialState, action) => {
@@ -12,7 +13,8 @@ const formReducer = (state = initialState, action) => {
       return {
         ...state,
         firstName: '',
-        secondName: ''
+        secondName: '',
+        email: ''
       }
     case SET_FORM_PROP:
       return {
