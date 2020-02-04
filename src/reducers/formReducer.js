@@ -1,4 +1,4 @@
-import { UPDATE_STATE, SUBMIT_FORM } from "../actions/types"
+import { SUBMIT_FORM, HANDLE_CHANGE } from "../actions/types"
 
 const initialState = {
   firstName: '',
@@ -14,7 +14,7 @@ const formReducer = (state = initialState, action) => {
         firstName: '',
         secondName: ''
       }
-    case UPDATE_STATE:
+    case HANDLE_CHANGE:
       return {
         ...state,
         [action.payload.name]: action.payload.value

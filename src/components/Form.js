@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { submitForm, updateState } from '../actions'
+import { submitForm, handleChange } from '../actions'
 
-const Form = ({ firstName, secondName, submitForm, updateState }) => {
+const Form = ({ firstName, secondName, submitForm, handleChange }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -15,14 +15,14 @@ const Form = ({ firstName, secondName, submitForm, updateState }) => {
         type="text" 
         name="firstName"
         value={firstName} 
-        onChange={(e) => updateState(e.target.name, e.target.value)} 
+        onChange={(e) => handleChange(e.target.name, e.target.value)} 
       />
       <br />
       <input 
         type="text" 
         name="secondName" 
         value={secondName}
-        onChange={(e) => updateState(e.target.name, e.target.value)} 
+        onChange={(e) => handleChange(e.target.name, e.target.value)} 
       />
       <br />
       <button>Submit</button>
@@ -37,7 +37,7 @@ const mapStateToProps = ({ form: { firstName, secondName } }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   submitForm: (firstName, secondName) => dispatch(submitForm(firstName, secondName)) ,
-  updateState: (name, value) => dispatch(updateState(name, value))
+  handleChange: (name, value) => dispatch(handleChange(name, value))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form)

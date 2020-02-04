@@ -1,4 +1,4 @@
-import { SUBMIT_FORM, UPDATE_STATE } from './types'
+import { SUBMIT_FORM, HANDLE_CHANGE } from './types'
 
 export const submitForm = (firstName, secondName) => ({
   type: SUBMIT_FORM,
@@ -8,8 +8,8 @@ export const submitForm = (firstName, secondName) => ({
   }
 })
 
-export const updateState = (name, value) => ({
-  type: UPDATE_STATE,
+export const handleChange = (name, value) => ({
+  type: HANDLE_CHANGE,
   payload: {
     name,
     value

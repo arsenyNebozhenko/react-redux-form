@@ -1,2 +1,2 @@
 export const SUBMIT_FORM = 'SUBMIT_FORM'
-export const UPDATE_STATE = 'UPDATE_STATE'
+export const HANDLE_CHANGE = 'HANDLE_CHANGE'
