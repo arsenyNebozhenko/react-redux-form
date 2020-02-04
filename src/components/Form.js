@@ -1,6 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { submitForm, setFormProp } from '../actions'
+import styled from 'styled-components'
+
+const Container = styled.form`
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const Input = styled.input`
+  text-align: center;
+  display: block;
+`
+
+const Button = styled.button`
+  display: block;
+`
 
 const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
   const handleSubmit = (e) => {
@@ -14,25 +32,23 @@ const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{textAlign: 'center', paddingTop: '64px'}}>
-      <input
+    <Container onSubmit={handleSubmit}>
+      <Input
         type="text"
         placeholder="First name" 
         name="firstName"
         value={firstName} 
         onChange={handleChange} 
       />
-      <br />
-      <input 
+      <Input 
         type="text" 
         placeholder="Second name"
         name="secondName" 
         value={secondName}
         onChange={handleChange} 
       />
-      <br />
-      <button>Submit</button>
-    </form>
+      <Button>Submit</Button>
+    </Container>
   )
 }
 
