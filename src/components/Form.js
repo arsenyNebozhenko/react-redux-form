@@ -18,13 +18,15 @@ const Title = styled.h1`
 const Input = styled.input`
   text-align: center;
   display: block;
+  font-size: 1.5rem;
+  padding: .5rem;
 `
 
 const Button = styled.button`
   display: block;
 `
 
-const Form = ({ firstName, secondName, email, submitForm, setFormProp }) => {
+const Form = ({ firstName, secondName, email, password, confirmPassword, submitForm, setFormProp }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -40,23 +42,37 @@ const Form = ({ firstName, secondName, email, submitForm, setFormProp }) => {
       <Title>Register</Title>
       <Input
         type="text"
-        placeholder="First name" 
+        placeholder="First Name" 
         name="firstName"
         value={firstName} 
         onChange={handleChange} 
       />
       <Input 
         type="text" 
-        placeholder="Second name"
+        placeholder="Second Name"
         name="secondName" 
         value={secondName}
         onChange={handleChange} 
-        />
+      />
       <Input 
         type="email" 
-        placeholder="email"
+        placeholder="Email"
         name="email" 
         value={email}
+        onChange={handleChange} 
+      />
+      <Input 
+        type="password" 
+        placeholder="Password"
+        name="password" 
+        value={password}
+        onChange={handleChange} 
+      />
+      <Input 
+        type="password" 
+        placeholder="Confirm Password"
+        name="confirmPassword" 
+        value={confirmPassword}
         onChange={handleChange} 
       />
       <Button>Submit</Button>
