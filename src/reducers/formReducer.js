@@ -1,4 +1,4 @@
-import { SUBMIT_FORM, HANDLE_CHANGE } from "../actions/types"
+import { SUBMIT_FORM, SET_FORM_PROP } from "../actions/types"
 
 const initialState = {
   firstName: '',
@@ -14,7 +14,7 @@ const formReducer = (state = initialState, action) => {
         firstName: '',
         secondName: ''
       }
-    case HANDLE_CHANGE:
+    case SET_FORM_PROP:
       return {
         ...state,
         [action.payload.name]: action.payload.value

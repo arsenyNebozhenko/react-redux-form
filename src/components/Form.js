@@ -1,12 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { SUBMIT_FORM, HANDLE_CHANGE } from '../actions/types'
+import { SUBMIT_FORM, SET_FORM_PROP } from '../actions/types'
 
-const Form = ({ firstName, secondName, submitForm, handleChange }) => {
+const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
     submitForm()
+  }
+
+  const handleChange = ({ target: { name, value } }) => {
+    setFormProp(name, value)
   }
 
   return (
@@ -15,14 +19,14 @@ const Form = ({ firstName, secondName, submitForm, handleChange }) => {
         type="text" 
         name="firstName"
         value={firstName} 
-        onChange={({target: { name, value }}) => handleChange(name, value)} 
+        onChange={handleChange} 
       />
       <br />
       <input 
         type="text" 
         name="secondName" 
         value={secondName}
-        onChange={({target: { name, value }}) => handleChange(name, value)} 
+        onChange={handleChange} 
       />
       <br />
       <button>Submit</button>
@@ -43,8 +47,8 @@ const mapDispatchToProps = (dispatch) => ({
       secondName 
     } 
   }),
-  handleChange: (name, value) => dispatch({ 
-    type: HANDLE_CHANGE, 
+  setFormProp: (name, value) => dispatch({ 
+    type: SET_FORM_PROP, 
     payload: { 
       name, 
       value 

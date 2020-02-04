@@ -1,2 +1,2 @@
 export const SUBMIT_FORM = 'SUBMIT_FORM'
-export const HANDLE_CHANGE = 'HANDLE_CHANGE'
+export const SET_FORM_PROP = 'SET_FORM_PROP'
