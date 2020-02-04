@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { submitForm, setFormProp } from '../actions'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Container = styled.form`
   padding-top: 64px;
@@ -20,13 +20,20 @@ const Input = styled.input`
   display: block;
   font-size: 1.5rem;
   padding: .5rem;
+  ${props => props.type === 'checkbox' && css`
+    display: inline-block;
+  `}
+`
+
+const Label = styled.label`
+
 `
 
 const Button = styled.button`
   display: block;
 `
 
-const Form = ({ firstName, secondName, email, password, confirmPassword, submitForm, setFormProp }) => {
+const Form = ({ firstName, secondName, email, password, confirmPassword, accept, submitForm, setFormProp }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -75,15 +82,28 @@ const Form = ({ firstName, secondName, email, password, confirmPassword, submitF
         value={confirmPassword}
         onChange={handleChange} 
       />
+      <Label htmlFor="accept">
+        <Input 
+          type="checkbox"
+          name="accept"
+          checked={accept}
+          id="accept"
+          onChange={({ target: { name } }) => setFormProp(name, !accept)}
+        />
+        I accept Terms of Use & Privacy Policy.
+      </Label>
       <Button>Submit</Button>
     </Container>
   )
 }
 
-const mapStateToProps = ({ form: { firstName, secondName, email } }) => ({
+const mapStateToProps = ({ form: { firstName, secondName, email, password, confirmPassword, accept } }) => ({
   firstName,
   secondName,
-  email
+  email,
+  password,
+  confirmPassword,
+  accept
 })
 
 const mapDispatchToProps = (dispatch) => ({

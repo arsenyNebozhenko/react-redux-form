@@ -5,7 +5,8 @@ const initialState = {
   secondName: '',
   email: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
+  accept: false
 }
 
 const formReducer = (state = initialState, action) => {
