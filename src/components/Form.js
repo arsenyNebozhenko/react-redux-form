@@ -15,14 +15,14 @@ const Form = ({ firstName, secondName, submitForm, handleChange }) => {
         type="text" 
         name="firstName"
         value={firstName} 
-        onChange={(e) => handleChange(e.target.name, e.target.value)} 
+        onChange={({ target: { name, value }}) => handleChange(name, value)} 
       />
       <br />
       <input 
         type="text" 
         name="secondName" 
         value={secondName}
-        onChange={(e) => handleChange(e.target.name, e.target.value)} 
+        onChange={({target: { name, value }}) => handleChange(name, value)} 
       />
       <br />
       <button>Submit</button>
