@@ -16,13 +16,16 @@ const Title = styled.h1`
 `
 
 const Input = styled.input`
-  text-align: center;
   display: block;
   font-size: 1.5rem;
   padding: .5rem;
+  margin-bottom: 0.5rem;
   ${props => props.type === 'checkbox' && css`
     display: inline-block;
   `}
+  &:last-child {
+    margin-bottom: 1rem;
+  }
 `
 
 const Label = styled.label`
@@ -30,7 +33,9 @@ const Label = styled.label`
 `
 
 const Button = styled.button`
+  font-size: 1.5rem;
   display: block;
+  cursor: pointer;
 `
 
 const Form = ({ firstName, secondName, email, password, confirmPassword, accept, submitForm, setFormProp }) => {
