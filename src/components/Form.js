@@ -16,7 +16,8 @@ const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
   return (
     <form onSubmit={handleSubmit} style={{textAlign: 'center', paddingTop: '64px'}}>
       <input
-        type="text" 
+        type="text"
+        placeholder="First name" 
         name="firstName"
         value={firstName} 
         onChange={handleChange} 
@@ -24,6 +25,7 @@ const Form = ({ firstName, secondName, submitForm, setFormProp }) => {
       <br />
       <input 
         type="text" 
+        placeholder="Second name"
         name="secondName" 
         value={secondName}
         onChange={handleChange} 
