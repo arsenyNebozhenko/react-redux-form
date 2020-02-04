@@ -40,7 +40,7 @@ const mapStateToProps = ({ form: { firstName, secondName } }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  submitForm: (firstName, secondName) => dispatch(submitForm(firstName, secondName)),
+  submitForm: () => dispatch(submitForm()),
   setFormProp: (name, value) => dispatch(setFormProp(name, value))
 })
 

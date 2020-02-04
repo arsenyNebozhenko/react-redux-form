@@ -1,11 +1,7 @@
 import { SUBMIT_FORM, SET_FORM_PROP } from './types'
 
-export const submitForm = (firstName, secondName) => ({
-  type: SUBMIT_FORM,
-  payload: {
-    firstName,
-    secondName
-  }
+export const submitForm = () => ({
+  type: SUBMIT_FORM
 })
 
 export const setFormProp = (name, value) => ({

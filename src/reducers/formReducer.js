@@ -8,7 +8,7 @@ const initialState = {
 const formReducer = (state = initialState, action) => {
   switch (action.type) {
     case SUBMIT_FORM:
-      alert(`First name: ${state.firstName}, Second name: ${state.secondName}`)
+      alert(`${state.firstName} ${state.secondName}`)
       return {
         ...state,
         firstName: '',
